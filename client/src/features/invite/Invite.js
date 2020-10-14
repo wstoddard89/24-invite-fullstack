@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { getUser,
          selectInvitee,
          selectGoing,
@@ -14,47 +15,49 @@ export default function Invite() {
 
   const dispatch = useDispatch()
 
+  const [going, setGoing] = useState(0)
+  const [notGoing, setNotGoing] = useState(0)
+
   const invitee = useSelector(selectInvitee)
   const attendingUser = useSelector(selectGoing)
   const notAttendingUser = useSelector(selectNotGoing)
 
   useEffect(() => {
+    
     dispatch(userGoing())
     dispatch(userNotGoing())
     dispatch(getUser(invitee))
   }, [])
 
   function handleRejectBtn(e) {
-    e.preventDefault()
+    e.preventdefault()
+    setNotGoing(notGoing + 1)
     dispatch(notAttending(invitee))
      dispatch(userNotGoing())
       dispatch(display(invitee))
   }
   function handleAcceptBtn(e) {
-    e.preventDefault()
+    e.preventdefault()
+    setGoing(going + 1)
     dispatch(isAttending(invitee))
     dispatch(userGoing())
       dispatch(display(invitee))
   }
 
-  // useEffect(() => {
-  //   dispatch(userGoing())
-  // }, [])
-
-  // useEffect(() => {
-  //   dispatch(userNotGoing())
-  // }, [])
-
   return (
     <div className="container">
       <div className="userContainer">
       <div className="topLabel">
-        <span>Going:
-          {/* {isGoing.length} */}
+        <Link to={"./isgoing"}>
+        <span>Going: {going}
+          {/* {isAttending.length} */}
           </span>
-        <span>Not Going:
-          {/* {notGoing.length} */}
+        </Link>
+        <Link to={"./notgoing"}>
+        <span>Not Going: {notGoing}
+          {/* {notAttending.length} */}
           </span>
+          </Link>
       </div>
       <div className="randomUser">
         <div
@@ -73,9 +76,9 @@ export default function Invite() {
           </div>
         </div>
         <div className="inviteBtns">
-          <button onClick={handleRejectBtn} className="notGoingBtn">Reject</button>
+         <form><button onClick={handleRejectBtn} className="notGoingBtn">Reject</button></form>
           
-          <button onClick={handleAcceptBtn} className="goingBtn">Accept</button>
+          <form><button onClick={handleAcceptBtn} className="goingBtn">Accept</button></form>
           
         </div>
         </div>

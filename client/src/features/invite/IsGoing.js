@@ -14,7 +14,7 @@ export default function IsGoing() {
   const invitee = useSelector(selectInvitee)
 
   useEffect(() => {
-    dispatch(userGoing())
+    dispatch(userGoing(invitee))
   }, [])
   return (
     <div className="container">

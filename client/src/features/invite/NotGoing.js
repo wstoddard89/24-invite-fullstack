@@ -13,7 +13,7 @@ export default function NotGoing() {
   const invitee = useSelector(selectInvitee)
   
   useEffect(() => {
-    dispatch(userNotGoing())
+    dispatch(userNotGoing(invitee))
   }, [])
   return (
     <div className="container">

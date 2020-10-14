@@ -37,14 +37,6 @@ export const notAttending = (user) => (dispatch) => {
   .then((r) => dispatch(getUser(user)))
 }
 
-// export const goingUser = (user) => (dispatch) => {
-//   axios.post("/api/isgoing/", user).then((r) => dispatch(isAttending(r.data)))
-// }
-
-// export const personNotGoing = (user) => (dispatch) => {
-//   axios.post("/api/notgoing/", user).then((r) => dispatch(notAttending(r.data)))
-// }
-
 export const userGoing = () => (dispatch) => {
   axios.get("/api/isgoing/").then((r) => {
     dispatch(attending(r.data))

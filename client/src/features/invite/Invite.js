@@ -24,20 +24,20 @@ export default function Invite() {
 
   useEffect(() => {
     
-    dispatch(userGoing())
-    dispatch(userNotGoing())
+    // dispatch(userGoing())
+    // dispatch(userNotGoing())
     dispatch(getUser(invitee))
   }, [])
 
   function handleRejectBtn(e) {
-    e.preventdefault()
+    // e.preventdefault()
     setNotGoing(notGoing + 1)
     dispatch(notAttending(invitee))
      dispatch(userNotGoing())
       dispatch(display(invitee))
   }
   function handleAcceptBtn(e) {
-    e.preventdefault()
+    // e.preventdefault()
     setGoing(going + 1)
     dispatch(isAttending(invitee))
     dispatch(userGoing())

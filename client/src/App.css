@@ -102,3 +102,17 @@ html, body {
   color: white;
   font-size: 12px;
 }
+
+.goingHeader {
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.notGoingHeader {
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
+}

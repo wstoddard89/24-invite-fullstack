@@ -17,6 +17,7 @@ export default function NotGoing() {
   }, [])
   return (
     <div className="container">
+      <h1 className="notGoingHeader">Not Going</h1>
       {personNotGoing.map((item) => (
        <div className="userContainer"> 
       <div className="randomUser">

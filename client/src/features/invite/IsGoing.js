@@ -18,6 +18,7 @@ export default function IsGoing() {
   }, [])
   return (
     <div className="container">
+      <h1 className="goingHeader">Going</h1>
       {goingPerson.map((item) => (
         <div className="userContainer">
         <div className="randomUser">

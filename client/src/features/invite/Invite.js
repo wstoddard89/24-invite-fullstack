@@ -15,8 +15,8 @@ export default function Invite() {
 
   const dispatch = useDispatch()
 
-  const [going, setGoing] = useState(0)
-  const [notGoing, setNotGoing] = useState(0)
+  // const [going, setGoing] = useState(0)
+  // const [notGoing, setNotGoing] = useState(0)
 
   const invitee = useSelector(selectInvitee)
   const attendingUser = useSelector(selectGoing)
@@ -31,14 +31,14 @@ export default function Invite() {
 
   function handleRejectBtn(e) {
     // e.preventdefault()
-    setNotGoing(notGoing + 1)
+    // setNotGoing(notGoing + 1)
     dispatch(notAttending(invitee))
      dispatch(userNotGoing())
       dispatch(display(invitee))
   }
   function handleAcceptBtn(e) {
     // e.preventdefault()
-    setGoing(going + 1)
+    // setGoing(going + 1)
     dispatch(isAttending(invitee))
     dispatch(userGoing())
       dispatch(display(invitee))
@@ -48,14 +48,14 @@ export default function Invite() {
     <div className="container">
       <div className="userContainer">
       <div className="topLabel">
-        <Link to={"./isgoing"}>
-        <span>Going: {going}
-          {/* {isAttending.length} */}
+        <Link to="./isgoing">
+        <span>Going:
+          {attendingUser.length}
           </span>
         </Link>
-        <Link to={"./notgoing"}>
-        <span>Not Going: {notGoing}
-          {/* {notAttending.length} */}
+        <Link to="./notgoing">
+        <span>Not Going:
+          {notAttendingUser.length}
           </span>
           </Link>
       </div>

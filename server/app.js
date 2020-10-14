@@ -21,9 +21,6 @@ app.get("/api", (req, res) => {
   })
 })
 
-// app.get("/api/going", (req, res) => {
-//   res.json(isGoing)
-// })
 
 app.get("/api/notgoing", (req, res) => {
   res.json(notGoing)
@@ -31,13 +28,15 @@ app.get("/api/notgoing", (req, res) => {
 
 
 app.post("/api/mark-invitee", (req, res) => {
-    if (req.body.going == true) {
-        isGoing.push(req.body)
-    } else if (req.body.going === false) {
-        notGoing.push(req.body)
+    const user = req.body
+    if (user.going == true) {
+        isGoing.push(user)
+    } else if (user.going === false) {
+        notGoing.push(user)
     }
     console.log(isGoing)
     console.log(notGoing)
+    res.json(user)
 })
 
 app.get("/api/isgoing", (req, res) => {
